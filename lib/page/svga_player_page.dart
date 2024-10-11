@@ -31,17 +31,17 @@ class _SvgaPlayerPageState extends State<SvgaPlayerPage> with SingleTickerProvid
     return Scaffold(
       appBar: AppBar(title: const Text("SvgaPlayer")),
       body: _buildBody(),
-      floatingActionButton: svgaController.videoItem == null ? null : FloatingActionButton.extended(
-        onPressed: (){pauseAndResume();},
-        label: Text(svgaController.isAnimating ? "Pause" : "Play"),
-        icon: Icon(svgaController.isAnimating
-            ? Icons.pause
-            : Icons.play_arrow),
-
-      ),
+      floatingActionButton: svgaController.videoItem == null
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: () {
+                pauseAndResume();
+              },
+              label: Text(svgaController.isAnimating ? "Pause" : "Play"),
+              icon: Icon(svgaController.isAnimating ? Icons.pause : Icons.play_arrow),
+            ),
     );
   }
-
 
   _buildBody() {
     return Column(
@@ -58,7 +58,7 @@ class _SvgaPlayerPageState extends State<SvgaPlayerPage> with SingleTickerProvid
             clearsAfterStop: false,
             allowDrawingOverflow: true,
             filterQuality: FilterQuality.high,
-            preferredSize: const Size(350,350),
+            preferredSize: const Size(350, 350),
           ),
         ),
         const SizedBox(height: 35),
